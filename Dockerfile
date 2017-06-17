@@ -1,17 +1,18 @@
 FROM node:alpine
 
 RUN apk add  --update --no-cache \
-    curl vim \
-    zsh \
-    git openssh \
+	curl vim \
+	zsh \
+	git openssh \
 && echo 'apk ran okay'
 
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
 
 RUN yarn global add \
-    firebase-tools \
-    polymer-cli \
-    bower \
+	http-server \
+	firebase-tools \
+	polymer-cli \
+	bower \
 && echo 'yarn global ran okay'
 
 # puhl@kali:~$ docker run -it --rm tg-workstation
@@ -29,5 +30,13 @@ RUN yarn global add \
 # 1.2.0
 # ➜  / firebase  --version
 # 3.9.1
+
+RUN git config --global user.name "luis-puhl" && \
+git config --global user.email "luispuhl@gmail.com"
+
+EXPOSE 80 8080 8081 4200
+
+VOLUME [ "/app" ]
+WORKDIR "/app"
 
 ENTRYPOINT ["zsh"]
