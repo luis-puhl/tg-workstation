@@ -4,6 +4,7 @@ RUN apk add  --update --no-cache \
 	curl vim \
 	zsh \
 	git openssh \
+	elinks \
 && echo 'apk ran okay'
 
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
@@ -34,7 +35,14 @@ RUN yarn global add \
 RUN git config --global user.name "luis-puhl" && \
 git config --global user.email "luispuhl@gmail.com"
 
-EXPOSE 80 8080 8081 4200
+# (npm) http-server
+EXPOSE 80 8080
+# polymer serve
+EXPOSE 8081
+# ng serve
+EXPOSE 4200
+# firebase login and serve
+EXPOSE 9005 5000
 
 VOLUME [ "/app" ]
 WORKDIR "/app"
