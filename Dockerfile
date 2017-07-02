@@ -5,9 +5,12 @@ RUN apk add  --update --no-cache \
 	zsh \
 	git openssh \
 	elinks \
+	ruby \
 && echo 'apk ran okay'
 
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
+
+RUN gem install sass || true
 
 RUN yarn global add \
 	http-server \
@@ -15,6 +18,8 @@ RUN yarn global add \
 	polymer-cli \
 	bower \
 && echo 'yarn global ran okay'
+
+RUN alias bower="bower --allow-root"
 
 # puhl@kali:~$ docker run -it --rm tg-workstation
 # ➜  / git --version
@@ -25,6 +30,8 @@ RUN yarn global add \
 # 5.0.3
 # ➜  / yarn --version
 # 0.24.6
+# ➜  / sass --version
+# Sass 3.4.24 (Selective Steve)
 # ➜  / bower --version 
 # 1.8.0
 # ➜  / polymer --version 
