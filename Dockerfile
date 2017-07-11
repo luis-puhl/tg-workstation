@@ -19,7 +19,14 @@ RUN yarn global add \
 	bower \
 && echo 'yarn global ran okay'
 
-RUN alias bower="bower --allow-root"
+ENV YARN_VERSION 0.27.5
+
+RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
+  && mkdir -p /opt/yarn \
+  && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
+  && rm yarn-v$YARN_VERSION.tar.gz 
+
+RUN echo 'alias bower="bower --allow-root"' >> ~/.zshrc
 
 # puhl@kali:~$ docker run -it --rm tg-workstation
 # ➜  / git --version
