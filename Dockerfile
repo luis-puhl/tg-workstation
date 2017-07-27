@@ -48,7 +48,7 @@ RUN echo 'alias bower="bower --allow-root"' >> ~/.zshrc
 
 RUN git config --global user.name "luis-puhl" && \
 git config --global user.email "luispuhl@gmail.com" && \
-git config core.fileMode false
+git config --global core.fileMode false
 
 # (npm) http-server
 EXPOSE 80 8080
