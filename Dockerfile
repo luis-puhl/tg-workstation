@@ -24,7 +24,7 @@ ENV YARN_VERSION 0.27.5
 RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && mkdir -p /opt/yarn \
   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/yarn --strip-components=1 \
-  && rm yarn-v$YARN_VERSION.tar.gz 
+  && rm yarn-v$YARN_VERSION.tar.gz
 
 RUN echo 'alias bower="bower --allow-root"' >> ~/.zshrc
 
@@ -39,15 +39,16 @@ RUN echo 'alias bower="bower --allow-root"' >> ~/.zshrc
 # 0.24.6
 # ➜  / sass --version
 # Sass 3.4.24 (Selective Steve)
-# ➜  / bower --version 
+# ➜  / bower --version
 # 1.8.0
-# ➜  / polymer --version 
+# ➜  / polymer --version
 # 1.2.0
 # ➜  / firebase  --version
 # 3.9.1
 
 RUN git config --global user.name "luis-puhl" && \
-git config --global user.email "luispuhl@gmail.com"
+git config --global user.email "luispuhl@gmail.com" && \
+git config core.fileMode false
 
 # (npm) http-server
 EXPOSE 80 8080
