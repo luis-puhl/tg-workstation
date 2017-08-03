@@ -17,6 +17,7 @@ RUN yarn global add \
 	firebase-tools \
 	polymer-cli \
 	bower \
+	vue-cli \
 && echo 'yarn global ran okay'
 
 ENV YARN_VERSION 0.27.5
@@ -45,6 +46,9 @@ RUN echo 'alias bower="bower --allow-root"' >> ~/.zshrc
 # 1.2.0
 # ➜  / firebase  --version
 # 3.9.1
+
+# ➜  /app git:(vue) vue --version
+# 2.8.2
 
 RUN git config --global user.name "luis-puhl" && \
 git config --global user.email "luispuhl@gmail.com" && \
