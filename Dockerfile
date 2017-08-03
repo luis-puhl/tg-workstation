@@ -18,6 +18,7 @@ RUN yarn global add \
 	polymer-cli \
 	bower \
 	vue-cli \
+	yo \
 && echo 'yarn global ran okay'
 
 ENV YARN_VERSION 0.27.5
