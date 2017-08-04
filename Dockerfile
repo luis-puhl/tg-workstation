@@ -1,8 +1,8 @@
 FROM node:alpine
 
 RUN apk add  --update --no-cache \
-	curl vim \
-	zsh \
+	wget curl ca-certificates \
+	zsh vim \
 	git openssh \
 	elinks \
 	ruby \
