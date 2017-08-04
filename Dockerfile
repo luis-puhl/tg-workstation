@@ -14,9 +14,10 @@ RUN gem install sass || true
 
 RUN yarn global add \
 	http-server \
-	bower yo now \
+	bower yo \
 	firebase-tools \
 	polymer-cli vue-cli \
+&& npm i -g --unsafe-perm now \
 && echo 'yarn global ran okay'
 
 ENV YARN_VERSION 0.27.5
