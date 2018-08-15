@@ -6,13 +6,13 @@ RUN apk add  --update --no-cache \
 	git openssh \
 	elinks \
 	ruby \
+	libsass libsass-dev \
+    	sudo \
 && echo 'apk ran okay'
 
 # if fails use  $ apk add --update ca-certificates openssl && update-ca-certificates
 
 RUN zsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ||true
-
-RUN gem install sass || true
 
 RUN yarn global add \
 	http-server \
